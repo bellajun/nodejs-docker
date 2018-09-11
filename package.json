@@ -4,7 +4,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fundebug/nodejs-docker.git"
+    "url": "git+https://github.com/bellajun/nodejs-docker.git"
   },
   "author": "Fundebug",
   "dependencies": {
