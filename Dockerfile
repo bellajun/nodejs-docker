@@ -5,7 +5,7 @@ FROM daocloud.io/library/ubuntu:16.04
 MAINTAINER Fundebug <help@fundebug.com>
 
 ENV TZ "Asia/Shanghai"
-RUN sudo apt-get install tzdata && echo "${TZ}" > /etc/timezone \
+RUN  apt-get install tzdata && echo "${TZ}" > /etc/timezone \
   && dpkg-reconfigure --frontend noninteractive tzdata
   
 # 设置时区
