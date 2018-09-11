@@ -21,7 +21,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted unive
 > /etc/apt/sources.list
 
 # 安装node v6.10.1
-RUN sudo apt-get update && sudo apt-get install -y wget
+RUN  apt-get update &&  apt-get install -y wget
 
 # 使用淘宝镜像安装Node.js v6.10.1，bella改为latest v10.0.0版本
 RUN wget https://npm.taobao.org/mirrors/node/latest/node-v10.0.0-linux-x64.tar.gz  && \
