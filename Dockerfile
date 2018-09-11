@@ -43,7 +43,9 @@ ADD package.json /app/package.json
 
 # 使用淘宝的npm镜像
 RUN npm install --production -d --registry=https://registry.npm.taobao.org
-
+#bella add，安装puppeteer，jest
+RUN npm install --save puppeteer@1.4.0
+RUN RUN npm install --save jest
 # 添加源代码
 #ADD . /app
 
