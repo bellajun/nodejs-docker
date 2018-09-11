@@ -4,27 +4,6 @@ FROM daocloud.io/library/ubuntu:16.04
 # 设置镜像作者
 MAINTAINER Fundebug <help@fundebug.com>
 
-
-# 配置中文语言
-ENV LANGUAGE zh_CN.UTF-8
-ENV LANG zh_CN.UTF-8
-ENV LC_ALL=zh_CN.UTF-8
-RUN /usr/share/locales/install-language-pack zh_CN \
-  && locale-gen zh_CN.UTF-8 \
-  && dpkg-reconfigure --frontend noninteractive locales \
-  && apt-get -qqy --no-install-recommends install language-pack-zh-hans
-  # 安装基本字体
-RUN apt-get -qqy --no-install-recommends install \
-    fonts-ipafont-gothic \
-    xfonts-100dpi \
-    xfonts-75dpi \
-    xfonts-cyrillic \
-    xfonts-scalable
-
-# 安装文泉驿微米黑字体
-RUN apt-get -qqy install ttf-wqy-microhei \
-  && ln /etc/fonts/conf.d/65-wqy-microhei.conf /etc/fonts/conf.d/69-language-selector-zh-cn.conf
-
 # 使用阿里云的Ubuntu镜像
 RUN echo '\n\
 deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
@@ -42,9 +21,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted unive
 # 安装node v6.10.1
 RUN  apt-get update &&  apt-get install -y wget
 
-
-
-  #============================================
+#============================================
 # Google Chrome
 #============================================
 # can specify versions by CHROME_VERSION;
