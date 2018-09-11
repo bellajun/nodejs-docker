@@ -4,7 +4,12 @@ FROM daocloud.io/library/ubuntu:16.04
 # 设置镜像作者
 MAINTAINER Fundebug <help@fundebug.com>
 
+ENV TZ "Asia/Shanghai"
+RUN echo "${TZ}" > /etc/timezone \
+  && dpkg-reconfigure --frontend noninteractive tzdata
+  
 # 设置时区
+ENV TZ "PRC"
 RUN echo "Asia/Shanghai" | tee /etc/timezone \
   && dpkg-reconfigure --frontend noninteractive tzdata
   
