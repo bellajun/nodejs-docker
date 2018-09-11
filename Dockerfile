@@ -5,9 +5,9 @@ FROM daocloud.io/library/ubuntu:16.04
 MAINTAINER Fundebug <help@fundebug.com>
 
 # 设置时区
-RUN sudo sh -c "echo 'Asia/Shanghai' > /etc/timezone" && \
-    sudo dpkg-reconfigure -f noninteractive tzdata
-
+RUN echo "Asia/Shanghai" | tee /etc/timezone \
+  && dpkg-reconfigure --frontend noninteractive tzdata
+  
 # 使用阿里云的Ubuntu镜像
 RUN echo '\n\
 deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
