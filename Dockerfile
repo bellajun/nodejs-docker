@@ -5,26 +5,6 @@ FROM daocloud.io/library/ubuntu:16.04
 MAINTAINER Fundebug <help@fundebug.com>
 
 
-
-
-# 使用阿里云的Ubuntu镜像
-RUN echo '\n\
-deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
-deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse\n\
-deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse\n\
-deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse\n\
-deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse\n\
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse\n\
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse\n\
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse\n\
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse\n'\
-> /etc/apt/sources.list
-
-# 安装node v6.10.1
-RUN  apt-get update &&  apt-get install -y wget
-
-
 # 配置中文语言
 ENV LANGUAGE zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
@@ -44,6 +24,26 @@ RUN apt-get -qqy --no-install-recommends install \
 # 安装文泉驿微米黑字体
 RUN apt-get -qqy install ttf-wqy-microhei \
   && ln /etc/fonts/conf.d/65-wqy-microhei.conf /etc/fonts/conf.d/69-language-selector-zh-cn.conf
+
+# 使用阿里云的Ubuntu镜像
+RUN echo '\n\
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
+deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse\n\
+deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse\n\
+deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse\n\
+deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse\n\
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse\n\
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse\n\
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse\n\
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse\n\
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse\n'\
+> /etc/apt/sources.list
+
+# 安装node v6.10.1
+RUN  apt-get update &&  apt-get install -y wget
+
+
+
   #============================================
 # Google Chrome
 #============================================
