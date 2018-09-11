@@ -28,14 +28,14 @@ RUN wget https://npm.taobao.org/mirrors/node/latest/node-v10.0.0-linux-x64.tar.g
     tar -C /usr/local --strip-components 1 -xzf node-v10.0.0-linux-x64.tar.gz  && \
     rm node-v10.0.0-linux-x64.tar.gz  && \
     ln -s /usr/local/bin/node /usr/local/bin/nodejs
-ENV TZ "Asia/Shanghai"
-RUN  echo "${TZ}" > /etc/timezone \
-  && dpkg-reconfigure --frontend noninteractive tzdata
+
+#ENV TZ "Asia/Shanghai"
+#RUN  echo "${TZ}" > /etc/timezone   && dpkg-reconfigure --frontend noninteractive tzdata
   
 # 设置时区
-ENV TZ "PRC"
-RUN echo "Asia/Shanghai" | tee /etc/timezone \
-  && dpkg-reconfigure --frontend noninteractive tzdata
+#ENV TZ "PRC"
+#RUN echo "Asia/Shanghai" | tee /etc/timezone   && dpkg-reconfigure --frontend noninteractive tzdata
+
 WORKDIR /app
 
 # 安装npm模块
